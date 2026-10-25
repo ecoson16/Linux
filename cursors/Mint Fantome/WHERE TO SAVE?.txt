@@ -1,0 +1,21 @@
+This is a guide that should work to use your cursors if it doesnt work, my bad. I am just trying to help 
+
+# Where to save the cursors pack for all users:
+**
+/usr/share/icons/
+**
+# With:
+sudo cp -r "MyCursorTheme" /usr/share/icons/
+
+# Where to save the cursors pack for the current user:
+**
+~/.local/share/icons/
+**
+sudo cp -r "MyCursorTheme" ~/.local/share/icons/
+
+# To apply the theme in GNOME (in case it doesnt appear in cursors):
+```
+gsettings set org.gnome.desktop.interface cursor-theme "MyCursorTheme"
+```
+
+If the theme does not appear or apply correctly, check the directory structure, index.theme, cursor filenames, and file permissions. Some applications may require a restart or a new login session to pick up the change.
