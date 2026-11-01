@@ -1,3 +1,6 @@
+[audio]
+sound_volume = 0.99999997764825821
+
 [bar.default]
 capsule_group = []
 center = [ "notes", "clock", "bar" ]
@@ -6,6 +9,33 @@ reserve_space = false
 smart_auto_hide = true
 start = [ "session", "control-center", "launcher", "media", "cat" ]
 thickness = 24
+
+[battery]
+warning_threshold = 20
+
+[brightness]
+minimum_brightness = 0.0099999997764825821
+
+[control_center]
+width = 600
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "screen_time"
+
+    [[control_center.shortcuts]]
+    type = "wallpaper"
 
 [desktop_widgets]
 enabled = false
@@ -34,24 +64,28 @@ pre_action_fade_seconds = 0
     [idle.behavior.lock]
     action = "lock"
     enabled = true
-    timeout = 1800.0
+    timeout = 900.0
 
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
     enabled = true
-    timeout = 3600.0
+    timeout = 1800.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
     enabled = true
-    timeout = 900.0
+    timeout = 180.0
 
 [location]
 auto_locate = true
 
+[lockscreen]
+blur_intensity = 0.29999999329447746
+
 [lockscreen_widgets]
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -81,25 +115,47 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
 
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 683.0
+    cy = 384.0
+    output = "eDP-1"
+    placement_height = 768.0
+    placement_width = 1366.0
+    rotation = 0.0
+    type = "clock"
+
 [nightlight]
 enabled = true
+temperature_night = 3200
 
 [notification]
+background_opacity = 0.99999997764825821
 position = "bottom_right"
 
 [osd]
 enabled = false
 
+[plugin_settings."apex077/eyecare"]
+active_duration_minutes = 60
+break_duration_seconds = 60
+
 [plugin_settings."radimous/prismlauncher-instances"]
 launcher_exec_command = "flatpak run org.prismlauncher.PrismLauncher"
 prism_path = "~/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/"
 
+[plugin_settings."yuuto/arch-updater"]
+aur_helper = "paru"
+terminal = "xfce4-terminal"
+
 [plugins]
-enabled = [ "noctalia/world_clock", "dotnetrob/cat", "noctalia/notes" ]
+enabled = [ "noctalia/world_clock", "dotnetrob/cat", "noctalia/notes", "apex077/eyecare", "radimous/prismlauncher-instances" ]
 
     [[plugins.source]]
     kind = "git"
@@ -112,25 +168,82 @@ enabled = [ "noctalia/world_clock", "dotnetrob/cat", "noctalia/notes" ]
     name = "community"
 
 [shell]
-font_family = "JetBrainsMono Nerd Font"
+font_family = "Maple Mono NF CN"
 screen_time_enabled = true
 time_format = "{:%-I:%M %p}"
 
+    [shell.launcher]
+    category_icons_only = true
+
+        [shell.launcher.providers.calculator]
+        prefix = ""
+
+        [shell.launcher.providers.emoji]
+        global = false
+
     [shell.screenshot]
+    annotate = true
     directory = "/home/ecoson16/Pictures/Screenshots"
     show_cursor = true
 
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    command = "hyprctl eval 'hl.dispatch(hl.dsp.exit())'"
+    countdown_seconds = 15.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 15.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 15.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 15.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
 [theme]
 builtin = "Catppuccin"
-community_palette = "GitHub Dark"
-mode = "dark"
-pure_black_dark = true
-source = "builtin"
-wallpaper_scheme = "m3-content"
+community_palette = "Catppuccin Mocha Pink"
+source = "community"
+wallpaper_scheme = "soft"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
-    community_ids = [ "discord", "vscode", "prismlauncher", "fastfetch", "thunderbird", "papirus-icons" ]
+    builtin_ids = [ "gtk3", "gtk4", "hyprland", "kcolorscheme", "qt" ]
+    community_ids = [
+        "discord",
+        "obsidian",
+        "vscode",
+        "pandora-launcher",
+        "prismlauncher",
+        "steam",
+        "fastfetch",
+        "thunderbird",
+        "hyprtoolkit",
+        "papirus-icons"
+    ]
+    enable_builtin_templates = false
+    enable_community_templates = false
 
 [wallpaper]
 directory = "/home/ecoson16/Pictures/Wallpapers"
@@ -141,13 +254,13 @@ transition_on_startup = true
     enabled = true
 
     [wallpaper.default]
-    path = "/home/ecoson16/Pictures/Wallpapers/clouds-3.png"
+    path = "/home/ecoson16/Pictures/Wallpapers/sakura-aura.jpg"
 
     [wallpaper.last]
-    path = "/home/ecoson16/Pictures/Wallpapers/clouds-3.png"
+    path = "/home/ecoson16/Pictures/Wallpapers/sakura-aura.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/ecoson16/Pictures/Wallpapers/clouds-3.png"
+    path = "/home/ecoson16/Pictures/Wallpapers/sakura-aura.jpg"
 
 [widget.bar]
 type = "noctalia/world_clock:bar"
