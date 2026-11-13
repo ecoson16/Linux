@@ -56,7 +56,7 @@ hl.monitor({
 local terminal         = "kitty"
 local fileManager      = "thunar"
 local menu             = "noctalia msg panel-toggle launcher"
-local browser          = "brave-origin"
+local browser          = "/home/ecoson16/Software/AppImage/Helium.AppImage %U"
 local minecraftLauncher = "prismlauncher"
 
 ------------------
@@ -66,15 +66,15 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia")
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
-    hl.exec_cmd("hyprctl setcursor Sparkle 32")
+    hl.exec_cmd("hyprctl setcursor Jailbirds 24")
 end)
 
 ------------------
 -- ENVIRONMENT
 ------------------
-hl.env("HYPRCURSOR_THEME", "Sparkle")
-hl.env("XCURSOR_SIZE", "32")
-hl.env("HYPRCURSOR_SIZE", "32")
+hl.env("HYPRCURSOR_THEME", "Jailbirds")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -- Optional security hardening. Add the required hl.permission(...) rules first.
@@ -323,3 +323,6 @@ hl.window_rule({
     max_size         = { 1, 1 },
     opacity          = "0.0 override",
 })
+
+-- Hyprmod integration
+require("hyprland-gui")

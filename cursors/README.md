@@ -1,5 +1,4 @@
-
-# Cursor Themes
+# Cursor Theme Collection
 
 Custom cursor themes collected for my Linux setup. Most of these cursor themes are converted to Linux using the **[ani2xcursor](https://github.com/yuzujr/ani2xcursor)** tool.
 
