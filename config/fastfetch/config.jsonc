@@ -8,17 +8,17 @@
       "left": 1
     },
     "color": {
-      "1": "#cb63f7",
-      "2": "#fab363"
+      "1": "#f5c2e7",
+      "2": "#cba6f7"
     }
   },
   "display": {
     "separator": ": ",
     "color": {
-      "keys": "#cba6f7",
-      "output": "#CDD6F4",
-      "separator": "#6C7086",
-      "title": "#fab387"
+      "keys": "#f5c2e7",
+      "output": "#cdd6f4",
+      "separator": "#6c7086",
+      "title": "#cba6f7"
     },
     "key": {
       "width": 18,
@@ -27,8 +27,8 @@
     "percent": {
       "type": 3,
       "color": {
-        "green": "#94e2d5",
-        "yellow": "#bb8af4",
+        "green": "#a6e3a1",
+        "yellow": "#f9e2af",
         "red": "#f38ba8"
       }
     },
@@ -124,8 +124,10 @@
       }
     },
     {
-      "type": "dns",
-      "key": "DNS"
+      "type": "command",
+      "key": "DNS",
+      "text": "resolvectl dns | grep -oE '([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-fA-F]{0,4}:){2,}[0-9a-fA-F:]*' | awk '!seen[$0]++' | paste -sd ' ' -",
+      "useOutput": "stdout"
     },
     {
       "type": "tpm",

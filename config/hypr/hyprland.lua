@@ -1,33 +1,49 @@
 -- Hyprland Lua configuration (0.55+)
--- Catppuccin Mocha palette uses hex RGB values; helpers build Hyprland colors.
+-- Mistrielle palette uses hex RGB values; helpers build Hyprland colors.
 
-local catppuccin = {
-    rosewater = "f5e0dc",
-    flamingo  = "f2cdcd",
-    pink      = "f5c2e7",
-    mauve     = "cba6f7",
-    red       = "f38ba8",
-    maroon    = "eba0ac",
-    peach     = "fab387",
-    yellow    = "f9e2af",
-    green     = "a6e3a1",
-    teal      = "94e2d5",
-    sky       = "89dceb",
-    sapphire  = "74c7ec",
-    blue      = "89b4fa",
-    lavender  = "b4befe",
-    text      = "cdd6f4",
-    subtext1  = "bac2de",
-    subtext0  = "a6adc8",
-    overlay2  = "9399b2",
-    overlay1  = "7f849c",
-    overlay0  = "6c7086",
-    surface2  = "585b70",
-    surface1  = "45475a",
-    surface0  = "313244",
-    base      = "1e1e2e",
-    mantle    = "181825",
-    crust     = "11111b",
+local mistrielle = {
+    pink_50  = "f8edf2",
+    pink_100 = "f0d8e3",
+    pink_200 = "e6bbd0",
+    pink_300 = "d694b7",
+    pink_400 = "ce89ac",
+    pink_500 = "c77fa5",
+    pink_600 = "9b5c7b",
+    pink_700 = "6c3d54",
+    pink_800 = "4b2b3b",
+
+    aqua_50  = "ecf7f5",
+    aqua_100 = "d8eeea",
+    aqua_200 = "bae0d9",
+    aqua_300 = "8bcbc2",
+    aqua_400 = "6cb4aa",
+    aqua_500 = "50978e",
+    aqua_600 = "3d7973",
+    aqua_700 = "2d5d59",
+    aqua_800 = "214542",
+
+    crust    = "151416",
+    mantle   = "1b191b",
+    base     = "211e21",
+    surface_0 = "2b272d",
+    surface_1 = "353039",
+    surface_2 = "403943",
+    overlay_0 = "93838f",
+    overlay_1 = "ae9daa",
+    overlay_2 = "c8bbc6",
+    subtext_0 = "b5a5b1",
+    subtext_1 = "d7cbd5",
+    text      = "f4edf2",
+    border    = "524954",
+    disabled  = "60555d",
+    focus     = "9fd4cb",
+
+    error   = "de98a3",
+    warning = "d9a991",
+    caution = "d6c69d",
+    success = "b3ceb2",
+    info    = "8bcbc2",
+    link    = "99c2d1",
 }
 
 local function rgb(hex)
@@ -56,7 +72,7 @@ hl.monitor({
 local terminal         = "kitty"
 local fileManager      = "thunar"
 local menu             = "noctalia msg panel-toggle launcher"
-local browser          = "/home/ecoson16/Software/AppImage/Helium.AppImage %U"
+local browser          = "firefox"
 local minecraftLauncher = "prismlauncher"
 
 ------------------
@@ -66,13 +82,13 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia")
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
-    hl.exec_cmd("hyprctl setcursor Jailbirds 24")
+    hl.exec_cmd("hyprctl setcursor Subaru 24")
 end)
 
 ------------------
 -- ENVIRONMENT
 ------------------
-hl.env("HYPRCURSOR_THEME", "Jailbirds")
+hl.env("HYPRCURSOR_THEME", "Subaru")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
@@ -95,13 +111,13 @@ hl.config({
         allow_tearing    = false, -- Keep disabled unless you specifically need tearing.
         col = {
             active_border = {
-                colors = { rgb(catppuccin.mauve), rgb(catppuccin.blue) },
+                colors = { rgb(mistrielle.pink_300), rgb(mistrielle.aqua_300) },
                 angle = 45,
             },
-            inactive_border = rgba(catppuccin.surface1, "99"),
-            nogroup_border = rgba(catppuccin.crust, "dd"),
+            inactive_border = rgba(mistrielle.surface_1, "99"),
+            nogroup_border = rgba(mistrielle.crust, "dd"),
             nogroup_border_active = {
-                colors = { rgb(catppuccin.blue), rgb(catppuccin.mauve) },
+                colors = { rgb(mistrielle.aqua_300), rgb(mistrielle.pink_300) },
                 angle = 45,
             },
         },
@@ -116,7 +132,7 @@ hl.config({
             enabled      = true,
             range        = 12,
             render_power = 3,
-            color        = tonumber("cc" .. catppuccin.crust, 16),
+            color        = tonumber("cc" .. mistrielle.crust, 16),
         },
         blur = {
             enabled  = true,
@@ -134,10 +150,10 @@ hl.config({
         groupbar = {
             col = {
                 active = {
-                    colors = { rgb(catppuccin.mauve), rgb(catppuccin.blue) },
+                    colors = { rgb(mistrielle.pink_300), rgb(mistrielle.aqua_300) },
                     angle = 45,
                 },
-                inactive = rgba(catppuccin.crust, "dd"),
+                inactive = rgba(mistrielle.crust, "dd"),
             },
         },
     },
@@ -280,10 +296,10 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 -- WINDOW RULES
 -- Docs: https://wiki.hypr.land/configuring/core/rules/window-rules/
 ------------------
--- Keep XWayland windows aligned with the Catppuccin palette.
+-- Keep XWayland windows aligned with the Mistrielle palette.
 hl.window_rule({
     match = { xwayland = true },
-    border_color = rgb(catppuccin.blue),
+    border_color = rgb(mistrielle.aqua_300),
 })
 
 hl.window_rule({
@@ -324,5 +340,3 @@ hl.window_rule({
     opacity          = "0.0 override",
 })
 
--- Hyprmod integration
-require("hyprland-gui")

@@ -3,6 +3,7 @@ high_contrast = false
 ui_scale = 1.0
 
 [audio]
+colorize_icons = false
 enable_notification_sounds = true
 enable_overdrive = false
 enable_power_sounds = true
@@ -96,7 +97,6 @@ refresh_minutes = 15
     use_event_reminders = true
 
 [control_center]
-circular_avatar = true
 hidden_tabs = []
 show_avatar_border = true
 show_session_button = true
@@ -143,6 +143,7 @@ schema_version = 2
     visible = true
 
 [dock]
+colorize_icons = false
 active_monitor_only = false
 active_opacity = 1.0
 active_scale = 1.0
@@ -345,6 +346,7 @@ temperature_day = 6500
 temperature_night = 3200
 
 [notification]
+colorize_icons = false
 background_opacity = 1.0
 border = true
 border_color = "outline_variant"
@@ -400,20 +402,9 @@ scale = 1.0
     volume_output = true
     wifi = true
 
-[plugin_settings."ahmedhossamdev/sticky-notes"]
-default_color = "pink"
-use_wallpaper_colors = true
-
 [plugin_settings."apex077/eyecare"]
 active_duration_minutes = 60
 break_duration_seconds = 60
-
-[plugin_settings."noctalia/bitwarden"]
-vault_timeout = "30"
-
-[plugin_settings."yuuto/arch-updater"]
-aur_helper = "paru"
-terminal = "xfce4-terminal"
 
 [plugins]
 auto_update = "all"
@@ -432,8 +423,8 @@ enabled = []
     name = "community"
 
 [shell]
-app_icon_colorize = false
 avatar_path = ""
+circular_avatar = true
 button_borders = true
 card_borders = true
 clipboard_auto_paste = "auto"
@@ -482,6 +473,7 @@ umbriel_overview_type_to_launch_enabled = false
     [shell.keyboard_layout]
 
     [shell.launcher]
+    colorize_icons = false
     app_grid = false
     auto_paste = "auto"
     categories = true
@@ -647,6 +639,7 @@ umbriel_overview_type_to_launch_enabled = false
     direction = "down"
 
     [shell.window_switcher]
+    colorize_icons = false
     current_workspace_only = false
     mru = false
     show_all_outputs = true
@@ -740,6 +733,7 @@ refresh_minutes = 30
 unit = "metric"
 
 [widget.active_window]
+colorize_icons = false
 icon_size = 16.0
 max_length = 260.0
 min_length = 80.0
